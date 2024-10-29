@@ -1,0 +1,11 @@
+- name: Run Application Container
+  community.docker.docker_container:
+    name: my-api
+    image: hul12/tp-devops-simple-api
+    state: started
+    restart_policy: unless-stopped
+    ports:
+      - "8080:8080"
+    networks:
+      - name: my-network
+

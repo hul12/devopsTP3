@@ -1,0 +1,12 @@
+- name: Run Reverse Proxy Container
+  docker_container:
+    name: proxy
+    image: hul12/tp-devops-http-server
+    state: started
+    restart_policy: unless-stopped
+    ports:
+      - "80:80"  # Map port 80 of the container to port 80 of the host
+    networks:
+      - name: my-network
+    volumes:
+        # Mount your custom nginx configuration

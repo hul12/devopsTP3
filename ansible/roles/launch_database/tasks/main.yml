@@ -1,0 +1,14 @@
+- name: Run Database Container 
+  docker_container:
+    name: my-db
+    image: hul12/tp-devops-database
+    state: started
+    restart_policy: always
+    ports:
+      - "5432:5432"
+    env:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "pwd"
+    networks:
+      - name: my-network
